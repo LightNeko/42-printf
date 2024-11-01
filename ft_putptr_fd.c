@@ -6,11 +6,11 @@
 /*   By: znicola <znicola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 22:12:28 by znicola           #+#    #+#             */
-/*   Updated: 2024/11/01 22:16:17 by znicola          ###   ########.fr       */
+/*   Updated: 2024/11/01 23:53:01 by znicola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "ft_printf.h"
 
 int	ft_putptr_fd(uintptr_t num, int fd)
 {

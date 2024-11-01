@@ -1,35 +1,38 @@
 NAME = libftprintf.a
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
-SRC = ft_printf.c printfhandlers.c printfhandlers2.c ft_putunsigned_fd.c ft_puthex_fd.c ft_putptr_fd.c 
 
-OBJ = $(SRC:.c=.o)
+CC = gcc 
+CFLAGS = -Wextra -Werror -Wall 
 
+SRCS = ft_printf.c \
+	   ft_puthex_fd.c \
+	   ft_putptr_fd.c \
+	   ft_putunsigned_fd.c \
+	   printfhandlers.c \
+	   printfhandlers2.c \
+
+OBJS = $(SRCS:.c=.o)
 LIBFT_PATH = ./libft
 LIBFT = $(LIBFT_PATH)/libft.a
-LIBFT_OBJ = $(LIBFT_PATH)/*.o
 
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(OBJ)
-		$(MAKE) -C $(LIBFT_PATH)
-		ar rc $(NAME) $(OBJ) $(LIBFT_OBJ)
-		ranlib $(NAME)
+$(NAME): $(LIBFT) $(OBJS)
+	cp $(LIBFT) $(NAME)
+	ar rcs $(NAME) $(OBJS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(LIBFT):
-	$(MAKE) -C $(LIBFT_PATH) all
+	make -C $(LIBFT_PATH) all
 
 clean:
-	rm -f $(OBJ)
-	$(MAKE) -C $(LIBFT_PATH) clean
+	make -C $(LIBFT_PATH) fclean
+	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)
-	$(MAKE) -C $(LIBFT_PATH) fclean
 
 re: fclean all
 
-.PHONY: all clean fclean re libft
+.PHONY: all, clean, fclean, re
