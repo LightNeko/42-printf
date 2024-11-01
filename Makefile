@@ -7,12 +7,13 @@ OBJ = $(SRC:.c=.o)
 
 LIBFT_PATH = ./libft
 LIBFT = $(LIBFT_PATH)/libft.a
+LIBFT_OBJ = $(LIBFT_PATH)/*.o
 
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJ)
-		cp $(LIBFT) $(NAME)
-		ar rc $(NAME) $(OBJ) libft/libft.a
+		$(MAKE) -C $(LIBFT_PATH)
+		ar rc $(NAME) $(OBJ) $(LIBFT_OBJ)
 		ranlib $(NAME)
 
 %.o: %.c
