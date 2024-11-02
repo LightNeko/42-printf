@@ -6,7 +6,7 @@
 /*   By: znicola <znicola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 19:27:02 by znicola           #+#    #+#             */
-/*   Updated: 2024/11/01 22:22:19 by znicola          ###   ########.fr       */
+/*   Updated: 2024/11/02 14:00:42 by znicola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int	handle_s(va_list args)
 	char	*str;
 
 	str = va_arg(args, char *);
+	if (!str)
+		str = "(null)";
 	return (ft_putstr_fd(str, 1));
 }
 

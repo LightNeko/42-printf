@@ -6,7 +6,7 @@
 /*   By: znicola <znicola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 11:59:28 by znicola           #+#    #+#             */
-/*   Updated: 2024/11/01 22:25:10 by znicola          ###   ########.fr       */
+/*   Updated: 2024/11/02 14:10:28 by znicola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ static int	process_printf(const char *str, va_list args)
 			len += result;
 			str++;
 		}
+		if (*str == '\0')
+			break ;
 		result = ft_putchar_fd(*str, 1);
 		if (result == -1)
 			return (-1);

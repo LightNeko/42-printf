@@ -6,7 +6,7 @@
 /*   By: znicola <znicola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 19:27:02 by znicola           #+#    #+#             */
-/*   Updated: 2024/11/01 23:15:43 by znicola          ###   ########.fr       */
+/*   Updated: 2024/11/02 14:09:50 by znicola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	handle_p(va_list args)
 	int				count;
 
 	ptr = va_arg(args, void *);
+	if (!ptr)
+		return (ft_putstr_fd("(nil)", 1));
 	address = (uintptr_t)ptr;
 	count = ft_putstr_fd("0x", 1);
 	count += ft_putptr_fd(address, 1);
